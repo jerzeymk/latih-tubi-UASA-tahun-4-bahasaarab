@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#047857">
+<meta name="description" content="Latihan interaktif UASA Tahun 4 Bahasa Arab (100 soalan)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%F0%9F%93%97%3C/text%3E%3C/svg%3E">
+<title>Latihan UASA Tahun 4 — Bahasa Arab</title>
+<style>
+:root{--green:#047857;--deep:#064e3b;--gold:#fbbf24;--ink:#172033;--muted:#64748b;--line:#dbe4e8;--paper:#fff;--bg:#f3f7f6}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
+header{background:linear-gradient(120deg,var(--deep),var(--green));color:white;padding:22px 16px}
+.wrap{max-width:900px;margin:auto;padding:0 16px}.headrow{display:flex;justify-content:space-between;align-items:center;gap:12px}.eyebrow{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:#d1fae5;font-weight:700}h1{font-size:clamp(1.25rem,3vw,1.8rem);line-height:1.2;margin:4px 0}header p{margin:6px 0 0;color:#d1fae5;font-size:.92rem}
+button{font:inherit;cursor:pointer;border:0;border-radius:12px;padding:11px 15px;font-weight:700}button:focus-visible{outline:3px solid #f59e0b;outline-offset:2px}.share{background:var(--gold);color:#422006;white-space:nowrap}
+main{padding:22px 0 38px}.tabs{display:flex;gap:8px;flex-wrap:wrap;background:white;border:1px solid var(--line);padding:8px;border-radius:16px;margin-bottom:16px}.tabs button{flex:1;background:#eef2f4;color:#334155}.tabs button.active{background:var(--green);color:white}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:clamp(16px,4vw,26px);box-shadow:0 5px 20px #0f172a08;margin-bottom:16px}
+.row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.pill{display:inline-block;background:#ecfdf5;color:var(--deep);border:1px solid #a7f3d0;border-radius:8px;padding:4px 9px;font-size:.78rem;font-weight:800}.muted{color:var(--muted);font-size:.9rem}.track{height:9px;background:#e2e8f0;border-radius:99px;overflow:hidden;margin-top:10px}.bar{height:100%;width:2%;background:var(--green);transition:width .2s}
+h2{font-size:1.25rem;line-height:1.4;margin:12px 0}
+.options{display:grid;gap:10px;margin-top:18px}.option{display:flex;text-align:left;align-items:center;gap:12px;border:2px solid var(--line);background:white;color:var(--ink);font-weight:600}.option:hover{border-color:#6ee7b7}.option.selected{border-color:var(--green);background:#ecfdf5}.letter{display:grid;place-items:center;flex:0 0 30px;height:30px;border:1px solid #cbd5e1;border-radius:50%;font-size:.8rem}.option.selected .letter{background:var(--green);color:white;border-color:var(--green)}
+.feedback{margin-top:18px;padding:14px;border-radius:12px;border:1px solid}.good{background:#ecfdf5;border-color:#a7f3d0}.bad{background:#fff1f2;border-color:#fecdd3}.feedback strong{display:block;margin-bottom:4px}.nav{display:flex;justify-content:space-between;gap:10px;margin-top:24px;padding-top:18px;border-top:1px solid #edf2f5}.secondary{background:#eef2f4;color:#334155}.primary{background:var(--green);color:white}.secondary:disabled{opacity:.4;cursor:not-allowed}
+.note{font-size:.86rem;color:#475569;background:#fffbeb;border:1px solid #fde68a;padding:13px;border-radius:12px;margin-top:14px}.scoregrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:18px 0}.score{padding:18px;background:#f8fafc;border:1px solid var(--line);border-radius:14px}.score .big{font-size:1.7rem;font-weight:850;color:var(--green)}.hidden{display:none!important}.modal{position:fixed;inset:0;background:#0f172acc;display:grid;place-items:center;padding:18px;z-index:5}.modalbox{background:white;border-radius:18px;padding:22px;max-width:460px;width:100%}.modalbox h2{margin-top:0}.modalactions{display:grid;gap:10px}.modalactions button{width:100%}footer{text-align:center;color:#64748b;font-size:.8rem;padding:18px}
+@media(max-width:520px){.headrow{align-items:flex-start}.share{padding:9px 11px}.scoregrid{grid-template-columns:1fr}.nav button{font-size:.9rem;padding:10px}}
+.option.correct{border-color:#059669;background:#d1fae5}.option.wrong{border-color:#e11d48;background:#ffe4e6}.option:disabled{cursor:default;color:var(--ink);opacity:1}.option.correct .letter{background:#059669;color:#fff;border-color:#059669}.option.wrong .letter{background:#e11d48;color:#fff;border-color:#e11d48}
+.option span:last-child{unicode-bidi:plaintext}
+</style>
+</head>
+<body>
+<header><div class="wrap headrow"><div><div class="eyebrow">Latihan kendiri • Tahun 4</div><h1>UASA: Bahasa Arab</h1><p>Latihan interaktif 100 soalan</p></div><button class="share" id="shareTop">↗ Kongsi</button></div></header>
+<main class="wrap">
+<nav class="tabs" aria-label="Pilih modul"><button class="active" id="tabP1">📚 Bahagian 1 (Soalan 1-50)</button><button id="tabP2">📖 Bahagian 2 (Soalan 51-100)</button><button id="tabSummary">🏆 Keputusan</button></nav>
+<section id="progress" class="card"><div class="row"><span id="subjectPill" class="pill">BAHASA ARAB TAHUN 4 — BAHAGIAN 1</span><span class="muted" id="counter">Soalan 1 daripada 50</span></div><div class="track"><div id="bar" class="bar"></div></div></section>
+<section id="quiz" class="card"><div class="muted" id="topic">Topik</div><h2 id="question">Memuatkan soalan…</h2><div id="options" class="options"></div><div id="feedback" class="feedback hidden" aria-live="polite"></div><div class="nav"><button class="secondary" id="prev">← Sebelum</button><button class="primary" id="next">Seterusnya →</button></div></section>
+<section id="summary" class="card hidden"><div style="text-align:center"><div style="font-size:2.6rem">🏆</div><h2>Keputusan Latihan</h2><p class="muted">Markah dikira berdasarkan soalan yang telah dijawab bagi kedua-dua bahagian.</p></div><div class="scoregrid"><div class="score"><div class="muted">Bahagian 1 (1-50)</div><div class="big" id="p1Score">0 / 50</div><div class="muted" id="p1Pct">0% • 0 dijawab</div></div><div class="score"><div class="muted">Bahagian 2 (51-100)</div><div class="big" id="p2Score">0 / 50</div><div class="muted" id="p2Pct">0% • 0 dijawab</div></div></div><div class="note"><b>Nota ketepatan silibus:</b> Ini bahan ulang kaji umum subjek Bahasa Arab Tahun 4. Soalan merangkumi kosa kata dan tatabahasa asas. Semak dengan buku teks Bahasa Arab Tahun 4 KPM dan guru kerana susunan topik boleh berbeza.</div><div class="nav"><button class="secondary" id="backQuiz">Kembali ke latihan</button><button class="primary" id="reset">Cuba semula</button></div></section>
+<div class="note"><b>Petua:</b> Jawab soalan secara teliti mengikut bahagian sebelum menyemak keputusan keseluruhan.</div>
+</main>
+<footer>Latihan ulang kaji Bahasa Arab • Tahun 4</footer>
+<div id="shareModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="shareTitle"><div class="modalbox"><div class="row"><h2 id="shareTitle">Kongsi latihan</h2><button class="secondary" id="closeShare" aria-label="Tutup">✕</button></div><p class="muted">Pautan hanya boleh dibuka oleh orang lain selepas fail ini dimuat naik ke hosting awam.</p><div class="modalactions"><button class="primary" id="wa">Kongsi melalui WhatsApp</button><button class="secondary" id="tg">Kongsi melalui Telegram</button><button class="secondary" id="copy">Salin pautan halaman</button></div><p id="shareStatus" class="muted" aria-live="polite"></p></div></div>
+<script>
+// Format setiap soalan: [soalan, jawapan betul, [3 jawapan salah], topik, penerangan]
+// Pilihan jawapan diacak automatik semasa halaman dimuat.
+const part1Data = [
+  // Salam dan ucapan (10)
+  ["Apakah maksud السَّلَامُ عَلَيْكُمْ؟","Salam sejahtera ke atas kamu",["Selamat pagi","Terima kasih","Selamat tinggal"],"Salam dan Ucapan","Salam yang diucapkan ketika bertemu."],
+  ["Bagaimanakah cara menjawab salam السَّلَامُ عَلَيْكُمْ؟","وَعَلَيْكُمُ السَّلَامُ",["صَبَاحُ الْخَيْرِ","شُكْرًا","مَعَ السَّلَامَةِ"],"Salam dan Ucapan","Salam dijawab dengan وَعَلَيْكُمُ السَّلَامُ."],
+  ["Apakah maksud صَبَاحُ الْخَيْرِ؟","Selamat pagi",["Selamat petang","Selamat tinggal","Terima kasih"],"Salam dan Ucapan","صَبَاحُ الْخَيْرِ ialah ucapan selamat pagi."],
+  ["Apakah maksud مَسَاءُ الْخَيْرِ؟","Selamat petang",["Selamat pagi","Selamat tinggal","Sama-sama"],"Salam dan Ucapan","مَسَاءُ الْخَيْرِ ialah ucapan selamat petang."],
+  ["Apakah maksud مَا اسْمُكَ؟","Siapakah nama kamu?",["Berapakah umur kamu?","Di manakah rumah kamu?","Apa khabar?"],"Salam dan Ucapan","مَا اسْمُكَ؟ ialah soalan untuk bertanya nama."],
+  ["Apakah maksud كَيْفَ حَالُكَ؟","Apa khabar kamu?",["Siapa nama kamu?","Di mana sekolah kamu?","Berapa umur kamu?"],"Salam dan Ucapan","كَيْفَ حَالُكَ؟ digunakan untuk bertanya khabar."],
+  ["Apakah maksud أَنَا بِخَيْرٍ، الْحَمْدُ لِلّٰهِ؟","Saya sihat, alhamdulillah",["Saya sakit","Saya pergi ke sekolah","Saya lapar"],"Salam dan Ucapan","Ini ialah jawapan kepada soalan bertanya khabar."],
+  ["Apakah maksud شُكْرًا؟","Terima kasih",["Maaf","Sama-sama","Selamat tinggal"],"Salam dan Ucapan","شُكْرًا bermaksud terima kasih."],
+  ["Apakah jawapan yang sesuai bagi شُكْرًا؟","عَفْوًا",["مَعَ السَّلَامَةِ","صَبَاحُ الْخَيْرِ","مَا اسْمُكَ؟"],"Salam dan Ucapan","عَفْوًا bermaksud sama-sama."],
+  ["Apakah maksud مَعَ السَّلَامَةِ؟","Selamat tinggal",["Selamat pagi","Terima kasih","Apa khabar"],"Salam dan Ucapan","مَعَ السَّلَامَةِ diucapkan ketika berpisah."],
+  // Kata ganti nama (6)
+  ["Apakah maksud أَنَا؟","Saya",["Kamu","Dia","Kami"],"Kata Ganti Nama","أَنَا ialah kata ganti nama bagi orang pertama, iaitu saya."],
+  ["Apakah maksud هُوَ؟","Dia (lelaki)",["Dia (perempuan)","Kamu (lelaki)","Saya"],"Kata Ganti Nama","هُوَ digunakan untuk dia (lelaki)."],
+  ["Apakah maksud هِيَ؟","Dia (perempuan)",["Dia (lelaki)","Kamu (perempuan)","Kami"],"Kata Ganti Nama","هِيَ digunakan untuk dia (perempuan)."],
+  ["Apakah maksud أَنْتَ؟","Kamu (lelaki)",["Kamu (perempuan)","Dia (lelaki)","Saya"],"Kata Ganti Nama","أَنْتَ digunakan untuk kamu (lelaki)."],
+  ["Apakah maksud أَنْتِ؟","Kamu (perempuan)",["Kamu (lelaki)","Dia (perempuan)","Kami"],"Kata Ganti Nama","أَنْتِ digunakan untuk kamu (perempuan)."],
+  ["Apakah maksud نَحْنُ؟","Kami atau kita",["Saya","Dia","Mereka"],"Kata Ganti Nama","نَحْنُ bermaksud kami atau kita."],
+  // Keluarga (8)
+  ["Apakah maksud أَبٌ؟","Ayah",["Ibu","Datuk","Abang"],"Keluarga","أَبٌ bermaksud ayah."],
+  ["Apakah maksud أُمٌّ؟","Ibu",["Ayah","Nenek","Kakak"],"Keluarga","أُمٌّ bermaksud ibu."],
+  ["Apakah maksud أَخٌ؟","Saudara lelaki",["Saudara perempuan","Ayah","Nenek"],"Keluarga","أَخٌ bermaksud saudara lelaki."],
+  ["Apakah maksud أُخْتٌ؟","Saudara perempuan",["Saudara lelaki","Datuk","Ibu"],"Keluarga","أُخْتٌ bermaksud saudara perempuan."],
+  ["Apakah maksud جَدٌّ؟","Datuk",["Nenek","Ayah","Abang"],"Keluarga","جَدٌّ bermaksud datuk."],
+  ["Apakah maksud جَدَّةٌ؟","Nenek",["Datuk","Ibu","Kakak"],"Keluarga","جَدَّةٌ bermaksud nenek."],
+  ["Apakah maksud أُسْرَةٌ؟","Keluarga",["Sekolah","Rumah","Kawan"],"Keluarga","أُسْرَةٌ bermaksud keluarga."],
+  ["Apakah bahasa Arab bagi 'anak perempuan'?","بِنْتٌ",["اِبْنٌ","أَبٌ","جَدٌّ"],"Keluarga","بِنْتٌ bermaksud anak perempuan, manakala اِبْنٌ ialah anak lelaki."],
+  // Sekolah (10)
+  ["Apakah maksud مَدْرَسَةٌ؟","Sekolah",["Rumah","Kedai","Masjid"],"Sekolah","مَدْرَسَةٌ bermaksud sekolah."],
+  ["Apakah maksud مُعَلِّمٌ؟","Guru lelaki",["Guru perempuan","Murid lelaki","Murid perempuan"],"Sekolah","مُعَلِّمٌ bermaksud guru lelaki."],
+  ["Apakah maksud مُعَلِّمَةٌ؟","Guru perempuan",["Guru lelaki","Murid lelaki","Doktor"],"Sekolah","مُعَلِّمَةٌ bermaksud guru perempuan."],
+  ["Apakah maksud طَالِبٌ؟","Murid lelaki",["Murid perempuan","Guru lelaki","Doktor"],"Sekolah","طَالِبٌ bermaksud murid lelaki."],
+  ["Apakah maksud كِتَابٌ؟","Buku",["Pen","Beg","Meja"],"Sekolah","كِتَابٌ bermaksud buku."],
+  ["Apakah maksud قَلَمٌ؟","Pen",["Buku","Pembaris","Pemadam"],"Sekolah","قَلَمٌ bermaksud pen."],
+  ["Apakah maksud مِسْطَرَةٌ؟","Pembaris",["Pen","Pemadam","Buku"],"Sekolah","مِسْطَرَةٌ bermaksud pembaris."],
+  ["Apakah maksud حَقِيبَةٌ؟","Beg",["Buku","Kerusi","Kasut"],"Sekolah","حَقِيبَةٌ bermaksud beg."],
+  ["Apakah maksud سَبُّورَةٌ؟","Papan hitam",["Meja","Pintu","Tingkap"],"Sekolah","سَبُّورَةٌ bermaksud papan hitam."],
+  ["Apakah maksud مَكْتَبَةٌ؟","Perpustakaan",["Kantin","Bilik darjah","Padang"],"Sekolah","مَكْتَبَةٌ bermaksud perpustakaan."],
+  // Rumah (6)
+  ["Apakah maksud بَيْتٌ؟","Rumah",["Sekolah","Taman","Kedai"],"Rumah","بَيْتٌ bermaksud rumah."],
+  ["Apakah maksud مَطْبَخٌ؟","Dapur",["Bilik tidur","Bilik air","Taman"],"Rumah","مَطْبَخٌ bermaksud dapur."],
+  ["Apakah maksud غُرْفَةُ النَّوْمِ؟","Bilik tidur",["Dapur","Bilik air","Taman"],"Rumah","غُرْفَةُ النَّوْمِ bermaksud bilik tidur."],
+  ["Apakah maksud حَمَّامٌ؟","Bilik air",["Dapur","Bilik tidur","Pintu"],"Rumah","حَمَّامٌ bermaksud bilik air."],
+  ["Apakah maksud حَدِيقَةٌ؟","Taman",["Dapur","Pintu","Tingkap"],"Rumah","حَدِيقَةٌ bermaksud taman."],
+  ["Apakah maksud نَافِذَةٌ؟","Tingkap",["Pintu","Meja","Kerusi"],"Rumah","نَافِذَةٌ bermaksud tingkap."],
+  // Anggota badan (7)
+  ["Apakah maksud رَأْسٌ؟","Kepala",["Tangan","Kaki","Mata"],"Anggota Badan","رَأْسٌ bermaksud kepala."],
+  ["Apakah maksud عَيْنٌ؟","Mata",["Telinga","Hidung","Mulut"],"Anggota Badan","عَيْنٌ bermaksud mata."],
+  ["Apakah maksud أُذُنٌ؟","Telinga",["Mata","Hidung","Mulut"],"Anggota Badan","أُذُنٌ bermaksud telinga."],
+  ["Apakah maksud أَنْفٌ؟","Hidung",["Mata","Telinga","Mulut"],"Anggota Badan","أَنْفٌ bermaksud hidung."],
+  ["Apakah maksud فَمٌ؟","Mulut",["Hidung","Telinga","Mata"],"Anggota Badan","فَمٌ bermaksud mulut."],
+  ["Apakah maksud يَدٌ؟","Tangan",["Kaki","Kepala","Gigi"],"Anggota Badan","يَدٌ bermaksud tangan."],
+  ["Apakah maksud رِجْلٌ؟","Kaki",["Tangan","Kepala","Mata"],"Anggota Badan","رِجْلٌ bermaksud kaki."],
+  // Warna (3 daripada 6)
+  ["Apakah maksud أَحْمَرُ؟","Merah",["Biru","Hijau","Kuning"],"Warna","أَحْمَرُ bermaksud merah."],
+  ["Apakah maksud أَزْرَقُ؟","Biru",["Merah","Hijau","Hitam"],"Warna","أَزْرَقُ bermaksud biru."],
+  ["Apakah maksud أَخْضَرُ؟","Hijau",["Merah","Biru","Putih"],"Warna","أَخْضَرُ bermaksud hijau."]
+];
+
+const part2Data = [
+  // Warna (3 daripada 6)
+  ["Apakah maksud أَصْفَرُ؟","Kuning",["Merah","Hijau","Biru"],"Warna","أَصْفَرُ bermaksud kuning."],
+  ["Apakah maksud أَسْوَدُ؟","Hitam",["Putih","Merah","Hijau"],"Warna","أَسْوَدُ bermaksud hitam."],
+  ["Apakah maksud أَبْيَضُ؟","Putih",["Hitam","Biru","Kuning"],"Warna","أَبْيَضُ bermaksud putih."],
+  // Nombor (8)
+  ["Apakah maksud وَاحِدٌ؟","Satu",["Dua","Tiga","Empat"],"Nombor","وَاحِدٌ bermaksud satu."],
+  ["Apakah maksud ثَلَاثَةٌ؟","Tiga",["Satu","Dua","Empat"],"Nombor","ثَلَاثَةٌ bermaksud tiga."],
+  ["Apakah maksud أَرْبَعَةٌ؟","Empat",["Tiga","Lima","Enam"],"Nombor","أَرْبَعَةٌ bermaksud empat."],
+  ["Apakah maksud خَمْسَةٌ؟","Lima",["Empat","Enam","Tujuh"],"Nombor","خَمْسَةٌ bermaksud lima."],
+  ["Apakah maksud سِتَّةٌ؟","Enam",["Lima","Tujuh","Lapan"],"Nombor","سِتَّةٌ bermaksud enam."],
+  ["Apakah bahasa Arab bagi nombor tujuh?","سَبْعَةٌ",["سِتَّةٌ","ثَمَانِيَةٌ","خَمْسَةٌ"],"Nombor","سَبْعَةٌ bermaksud tujuh."],
+  ["Apakah maksud ثَمَانِيَةٌ؟","Lapan",["Tujuh","Sembilan","Sepuluh"],"Nombor","ثَمَانِيَةٌ bermaksud lapan."],
+  ["Apakah maksud عَشَرَةٌ؟","Sepuluh",["Sembilan","Lapan","Tujuh"],"Nombor","عَشَرَةٌ bermaksud sepuluh."],
+  // Haiwan dan makanan (8)
+  ["Apakah maksud قِطَّةٌ؟","Kucing",["Burung","Ikan","Lembu"],"Haiwan dan Makanan","قِطَّةٌ bermaksud kucing."],
+  ["Apakah maksud بَقَرَةٌ؟","Lembu",["Kucing","Kuda","Ikan"],"Haiwan dan Makanan","بَقَرَةٌ bermaksud lembu."],
+  ["Apakah maksud حِصَانٌ؟","Kuda",["Lembu","Kucing","Burung"],"Haiwan dan Makanan","حِصَانٌ bermaksud kuda."],
+  ["Apakah maksud سَمَكَةٌ؟","Ikan",["Burung","Kucing","Kuda"],"Haiwan dan Makanan","سَمَكَةٌ bermaksud ikan."],
+  ["Apakah maksud عُصْفُورٌ؟","Burung",["Ikan","Kucing","Lembu"],"Haiwan dan Makanan","عُصْفُورٌ bermaksud burung."],
+  ["Apakah maksud خُبْزٌ؟","Roti",["Air","Susu","Nasi"],"Haiwan dan Makanan","خُبْزٌ bermaksud roti."],
+  ["Apakah maksud مَاءٌ؟","Air",["Susu","Roti","Epal"],"Haiwan dan Makanan","مَاءٌ bermaksud air."],
+  ["Apakah maksud حَلِيبٌ؟","Susu",["Air","Roti","Pisang"],"Haiwan dan Makanan","حَلِيبٌ bermaksud susu."],
+  // Hari (5)
+  ["Apakah maksud الْجُمُعَةُ؟","Hari Jumaat",["Hari Khamis","Hari Sabtu","Hari Isnin"],"Hari dalam Seminggu","الْجُمُعَةُ bermaksud hari Jumaat."],
+  ["Apakah maksud الْخَمِيسُ؟","Hari Khamis",["Hari Jumaat","Hari Sabtu","Hari Rabu"],"Hari dalam Seminggu","الْخَمِيسُ bermaksud hari Khamis."],
+  ["Apakah maksud السَّبْتُ؟","Hari Sabtu",["Hari Ahad","Hari Jumaat","Hari Isnin"],"Hari dalam Seminggu","السَّبْتُ bermaksud hari Sabtu."],
+  ["Apakah maksud الِاثْنَيْنِ؟","Hari Isnin",["Hari Selasa","Hari Rabu","Hari Ahad"],"Hari dalam Seminggu","الِاثْنَيْنِ bermaksud hari Isnin."],
+  ["Apakah bahasa Arab bagi hari Ahad?","الْأَحَدُ",["الْجُمُعَةُ","السَّبْتُ","الْخَمِيسُ"],"Hari dalam Seminggu","الْأَحَدُ bermaksud hari Ahad."],
+  // Tatabahasa: kata tunjuk, mudzakkar/muannats (8)
+  ["Kata tunjuk هٰذَا digunakan untuk benda atau orang yang...","Lelaki (mudzakkar) dan dekat",["Perempuan (muannats) dan dekat","Lelaki dan jauh","Perempuan dan jauh"],"Tatabahasa Asas","هٰذَا bermaksud 'ini' untuk mudzakkar."],
+  ["Kata tunjuk هٰذِهِ digunakan untuk benda atau orang yang...","Perempuan (muannats) dan dekat",["Lelaki (mudzakkar) dan dekat","Lelaki dan jauh","Jamak sahaja"],"Tatabahasa Asas","هٰذِهِ bermaksud 'ini' untuk muannats."],
+  ["Apakah maksud هٰذَا كِتَابٌ؟","Ini sebuah buku",["Itu sebuah buku","Ini sebuah sekolah","Ini sebatang pen"],"Tatabahasa Asas","هٰذَا كِتَابٌ bermaksud ini sebuah buku."],
+  ["Apakah maksud هٰذِهِ مَدْرَسَةٌ؟","Ini sebuah sekolah",["Ini sebuah buku","Itu sebuah sekolah","Ini sebuah rumah"],"Tatabahasa Asas","هٰذِهِ مَدْرَسَةٌ bermaksud ini sebuah sekolah."],
+  ["Perkataan muannats biasanya berakhir dengan huruf...","ة (ta marbutah)",["ب","م","ن"],"Tatabahasa Asas","Banyak perkataan muannats berakhir dengan ta marbutah (ة)."],
+  ["Antara berikut, yang manakah isim mudzakkar?","قَلَمٌ",["مُعَلِّمَةٌ","طَالِبَةٌ","مَدْرَسَةٌ"],"Tatabahasa Asas","قَلَمٌ ialah isim mudzakkar."],
+  ["Antara berikut, yang manakah isim muannats?","مَدْرَسَةٌ",["كِتَابٌ","قَلَمٌ","بَيْتٌ"],"Tatabahasa Asas","مَدْرَسَةٌ berakhir dengan ta marbutah, iaitu muannats."],
+  ["Apakah maksud ذٰلِكَ كِتَابٌ؟","Itu sebuah buku",["Ini sebuah buku","Ini sebuah pen","Itu sebuah sekolah"],"Tatabahasa Asas","ذٰلِكَ bermaksud 'itu'."],
+  // Kata tanya dan kata sendi (8)
+  ["Apakah maksud kata tanya مَا؟","Apa",["Siapa","Di mana","Berapa"],"Kata Tanya dan Kata Sendi","مَا ialah kata tanya untuk bertanya 'apa'."],
+  ["Apakah maksud kata tanya مَنْ؟","Siapa",["Apa","Di mana","Berapa"],"Kata Tanya dan Kata Sendi","مَنْ ialah kata tanya untuk bertanya 'siapa'."],
+  ["Apakah maksud kata tanya أَيْنَ؟","Di mana",["Apa","Siapa","Berapa"],"Kata Tanya dan Kata Sendi","أَيْنَ ialah kata tanya tempat."],
+  ["Apakah maksud kata tanya كَمْ؟","Berapa",["Apa","Siapa","Di mana"],"Kata Tanya dan Kata Sendi","كَمْ ialah kata tanya bilangan."],
+  ["Apakah maksud kata tanya هَلْ؟","Adakah",["Siapa","Di mana","Berapa"],"Kata Tanya dan Kata Sendi","هَلْ digunakan untuk soalan jawapan ya atau tidak."],
+  ["Apakah maksud kata sendi فِي؟","Di dalam",["Di atas","Dari","Ke"],"Kata Tanya dan Kata Sendi","فِي bermaksud di dalam."],
+  ["Apakah maksud kata sendi عَلَى؟","Di atas",["Di dalam","Dari","Ke"],"Kata Tanya dan Kata Sendi","عَلَى bermaksud di atas."],
+  ["Apakah maksud kata sendi إِلَى؟","Ke",["Dari","Di atas","Di dalam"],"Kata Tanya dan Kata Sendi","إِلَى bermaksud ke."],
+  // Kata kerja (6)
+  ["Apakah maksud كَتَبَ؟","Menulis",["Membaca","Makan","Duduk"],"Kata Kerja","كَتَبَ bermaksud menulis."],
+  ["Apakah maksud قَرَأَ؟","Membaca",["Menulis","Minum","Pergi"],"Kata Kerja","قَرَأَ bermaksud membaca."],
+  ["Apakah maksud ذَهَبَ؟","Pergi",["Duduk","Makan","Minum"],"Kata Kerja","ذَهَبَ bermaksud pergi."],
+  ["Apakah maksud أَكَلَ؟","Makan",["Minum","Menulis","Pergi"],"Kata Kerja","أَكَلَ bermaksud makan."],
+  ["Apakah maksud شَرِبَ؟","Minum",["Makan","Membaca","Duduk"],"Kata Kerja","شَرِبَ bermaksud minum."],
+  ["Apakah maksud جَلَسَ؟","Duduk",["Berdiri","Makan","Menulis"],"Kata Kerja","جَلَسَ bermaksud duduk."],
+  // Umum (4)
+  ["Bahasa Arab ditulis dari arah mana?","Kanan ke kiri",["Kiri ke kanan","Atas ke bawah","Bawah ke atas"],"Pengetahuan Umum","Tulisan Arab bermula dari sebelah kanan."],
+  ["Berapakah bilangan huruf hijaiyah?","28",["20","26","30"],"Pengetahuan Umum","Terdapat 28 huruf hijaiyah."],
+  ["Perkataan dalam bahasa Arab terbahagi kepada tiga jenis iaitu...","Isim, fi'il dan huruf",["Isim, nombor dan warna","Fi'il, haiwan dan makanan","Huruf, hari dan bulan"],"Pengetahuan Umum","Tiga jenis kalimah ialah isim, fi'il dan huruf."],
+  ["Kata kerja dalam bahasa Arab dipanggil...","فِعْلٌ",["اِسْمٌ","حَرْفٌ","كَلِمَةٌ"],"Pengetahuan Umum","فِعْلٌ ialah kata kerja."]
+];
+
+function shuffle(arr) { const a = arr.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+function build(data) {
+  return data.map((x, i) => {
+    const opts = shuffle([x[1], ...x[2]]);
+    return { q: x[0], opts, a: opts.indexOf(x[1]), topic: x[3], why: x[4], id: i + 1 };
+  });
+}
+const bank = { p1: build(part1Data), p2: build(part2Data) };
+if (bank.p1.length !== 50 || bank.p2.length !== 50) console.warn("Bilangan soalan tidak tepat:", bank.p1.length, bank.p2.length);
+
+let currentPart = "p1", index = { p1: 0, p2: 0 }, answers = { p1: Array(bank.p1.length).fill(null), p2: Array(bank.p2.length).fill(null) };
+const $ = id => document.getElementById(id);
+
+function render() {
+  const q = bank[currentPart][index[currentPart]], a = answers[currentPart][index[currentPart]];
+  $("subjectPill").textContent = currentPart === "p1" ? "BAHASA ARAB TAHUN 4 — BAHAGIAN 1 (SOALAN 1-50)" : "BAHASA ARAB TAHUN 4 — BAHAGIAN 2 (SOALAN 51-100)";
+  $("counter").textContent = `Soalan ${(currentPart === "p1" ? 0 : 50) + index[currentPart] + 1} daripada 100`;
+  $("bar").style.width = ((index[currentPart] + 1) / bank[currentPart].length * 100) + "%";
+  $("topic").textContent = "Topik: " + q.topic;
+  $("question").textContent = q.q;
+  
+  $("options").replaceChildren();
+  q.opts.forEach((opt, i) => {
+    const b = document.createElement("button");
+    let cls = "option";
+    if (a !== null) { if (i === q.a) cls += " correct"; else if (i === a) cls += " wrong"; }
+    b.className = cls;
+    b.disabled = a !== null;
+    const letter = document.createElement("span");
+    letter.className = "letter";
+    letter.textContent = String.fromCharCode(65 + i);
+    const label = document.createElement("span");
+    label.textContent = opt;
+    b.append(letter, label);
+    b.onclick = () => { if (answers[currentPart][index[currentPart]] === null) { answers[currentPart][index[currentPart]] = i; render(); } };
+    $("options").append(b);
+  });
+
+  const f = $("feedback");
+  f.className = "feedback hidden";
+  if (a !== null) {
+    const ok = a === q.a;
+    f.className = "feedback " + (ok ? "good" : "bad");
+    const title = document.createElement("strong");
+    title.textContent = ok ? "✓ Jawapan tepat" : "✗ Jawapan belum tepat — jawapan betul: " + String.fromCharCode(65 + q.a) + ". " + q.opts[q.a];
+    const desc = document.createElement("span");
+    desc.textContent = q.why;
+    f.replaceChildren(title, desc);
+  }
+
+  $("prev").disabled = index[currentPart] === 0;
+  $("next").textContent = index[currentPart] === bank[currentPart].length - 1 ? "Lihat keputusan →" : "Seterusnya →";
+  
+  ["tabP1", "tabP2", "tabSummary"].forEach(id => $(id).classList.remove("active"));
+  $(currentPart === "p1" ? "tabP1" : "tabP2").classList.add("active");
+}
+
+function switchTo(part) {
+  currentPart = part;
+  $("summary").classList.add("hidden");
+  $("quiz").classList.remove("hidden");
+  $("progress").classList.remove("hidden");
+  render();
+}
+
+function showSummary() {
+  $("quiz").classList.add("hidden");
+  $("progress").classList.add("hidden");
+  $("summary").classList.remove("hidden");
+  $("tabP1").classList.remove("active");
+  $("tabP2").classList.remove("active");
+  $("tabSummary").classList.add("active");
+
+  for (const p of ["p1", "p2"]) {
+    let done = 0, correct = 0;
+    answers[p].forEach((a, i) => {
+      if (a !== null) {
+        done++;
+        if (a === bank[p][i].a) correct++;
+      }
+    });
+    const pct = done ? Math.round(correct / done * 100) : 0;
+    $(p === "p1" ? "p1Score" : "p2Score").textContent = `${correct} / ${bank[p].length}`;
+    $(p === "p1" ? "p1Pct" : "p2Pct").textContent = `${pct}% ketepatan • ${done}/${bank[p].length} dijawab`;
+  }
+}
+
+$("tabP1").onclick = () => switchTo("p1");
+$("tabP2").onclick = () => switchTo("p2");
+$("tabSummary").onclick = showSummary;
+
+$("prev").onclick = () => { if (index[currentPart] > 0) { index[currentPart]--; render(); } };
+$("next").onclick = () => {
+  if (index[currentPart] < bank[currentPart].length - 1) { index[currentPart]++; render(); } else { showSummary(); }
+};
+
+$("backQuiz").onclick = () => switchTo(currentPart);
+$("reset").onclick = () => {
+  answers = { p1: Array(bank.p1.length).fill(null), p2: Array(bank.p2.length).fill(null) };
+  index = { p1: 0, p2: 0 };
+  switchTo("p1");
+};
+
+function openShare() { $("shareModal").classList.remove("hidden"); $("shareStatus").textContent = ""; }
+$("shareTop").onclick = openShare;
+$("closeShare").onclick = () => $("shareModal").classList.add("hidden");
+
+$("wa").onclick = () => window.open("https://wa.me/?text=" + encodeURIComponent("Jom buat latihan UASA Tahun 4 - Bahasa Arab! " + location.href), "_blank", "noopener");
+$("tg").onclick = () => window.open("https://t.me/share/url?url=" + encodeURIComponent(location.href) + "&text=" + encodeURIComponent("Latihan UASA Tahun 4 - Bahasa Arab"),"_blank", "noopener");
+$("copy").onclick = async () => {
+  try {
+    await navigator.clipboard.writeText(location.href);
+    $("shareStatus").textContent = "Pautan disalin.";
+  } catch (e) {
+    $("shareStatus").textContent = "Salin URL daripada bar alamat pelayar: " + location.href;
+  }
+};
+
+$("shareModal").addEventListener("click", e => { if (e.target === $("shareModal")) $("shareModal").classList.add("hidden"); });
+
+render();
+</script>
+</body>
+</html>
